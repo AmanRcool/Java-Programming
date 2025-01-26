@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Webkul {
+    public static void solve(int n) {
+        int[][] a = new int[n + 2][4 * n - 1];
+
+        for (int i = 0; i < n + 2; i++) {
+            for (int j = 0; j < 4 * n - 1; j++) {
+                if (i == 0 && j < 2 * n - 1) {
+                    System.out.print("  ");
+                    continue;
+                }
+                if (i == 0 && j >= 3 * n) {
+                    System.out.print("e ");
+                    continue;
+                }
+                if (i == n + 1 && j <= n - 2) {
+                    System.out.print("e ");
+                    continue;
+                }
+                if (j == 2 * n - 1) {
+                    System.out.print("* ");
+                    continue;
+                }
+                if (j == n - 2 || j == 3 * n) {
+                    System.out.print("* ");
+                    continue;
+                }
+                if (i == n / 2 + 1 && j > n - 2 && j < 3 * n) {
+                    System.out.print("e ");
+                    continue;
+                }
+                System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+System.out.println("Enter value of N");
+        int n = scanner.nextInt();
+        solve(n);
+    }
+}
+
+/**
+
+
+
+
+Enter value of N
+5
+                  *           e e e e
+      *           *           *
+      *           *           *
+      * e e e e e * e e e e e *
+      *           *           *
+      *           *           *
+e e e e           *           *
+
+
+
+
+
+*/
