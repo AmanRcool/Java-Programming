@@ -1,0 +1,44 @@
+import java.util.*;
+public class MinMaxSort{
+
+    public static void main(String[] args) {
+        // Test the Min-Max sort
+        int[] arr = { 5, 3, 8, 1, 2, 7, 6, 4 };
+
+        // Print the original array
+        System.out.println("Original Array: "+Arrays.toString(arr));
+      
+        int n = arr.length;
+
+        // Perform Min-Max sorting directly in the main method
+        for (int i = 0; i < n / 2; i++) {
+            // Find the minimum and maximum elements in the unsorted part of the array
+            int minIdx = i;
+            int maxIdx = i;
+            for (int j = i + 1; j < n - i; j++) {
+                if (arr[j] < arr[minIdx]) {
+                    minIdx = j;
+                }
+                if (arr[j] > arr[maxIdx]) {
+                    maxIdx = j;
+                }
+            }
+
+                       int temp = arr[minIdx];
+            arr[minIdx] = arr[i];
+            arr[i] = temp;
+
+                    if (maxIdx == i) {
+                maxIdx = minIdx;
+            }
+
+                     temp = arr[maxIdx];
+            arr[maxIdx] = arr[n - i - 1];
+            arr[n - i - 1] = temp;
+        }
+
+        // Print the sorted array
+        System.out.println("Sorted Array: "+Arrays.toString(arr));
+               
+    }
+}
